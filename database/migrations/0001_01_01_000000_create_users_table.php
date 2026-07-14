@@ -15,6 +15,22 @@ return new class extends Migration {
             $table->string('avatar')->nullable();
             $table->string('locale')->default('id');
             $table->timestamp('last_seen_at')->nullable();
+            
+            // New extended profile fields
+            $table->string('jurusan')->nullable();
+            $table->string('telepon')->nullable();
+            $table->text('bio')->nullable();
+            $table->text('alamat')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('prodi_id')->nullable();
+            $table->unsignedBigInteger('kelas_id')->nullable();
+
+            // Login logging details
+            $table->timestamp('last_login_at')->nullable();
+            $table->string('last_login_ip', 45)->nullable();
+            $table->text('last_login_device')->nullable();
+            $table->string('last_login_browser')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

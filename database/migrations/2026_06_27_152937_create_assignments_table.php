@@ -13,6 +13,14 @@ return new class extends Migration {
             $table->dateTime('deadline');
             $table->string('allowed_types')->default('pdf,zip,jpg,txt'); // ketentuan file
             $table->integer('max_size_mb')->default(20);
+            
+            // New assignment configuration fields
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
+            $table->integer('upload_limit')->default(1);
+            $table->integer('max_score')->default(100);
+            $table->text('rubric')->nullable();
+
             $table->timestamps();
         });
     }

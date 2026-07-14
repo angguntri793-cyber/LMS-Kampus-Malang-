@@ -11,6 +11,12 @@ return new class extends Migration {
             $table->string('kode')->unique();
             $table->text('deskripsi')->nullable();
             $table->foreignId('dosen_id')->constrained('users')->cascadeOnDelete();
+            
+            // New academic relation fields
+            $table->unsignedBigInteger('prodi_id')->nullable();
+            $table->unsignedBigInteger('semester_id')->nullable();
+            $table->unsignedBigInteger('kelas_id')->nullable();
+
             $table->timestamps();
         });
 

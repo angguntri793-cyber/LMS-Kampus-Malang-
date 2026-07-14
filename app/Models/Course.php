@@ -17,6 +17,9 @@ class Course extends Model
         'kode',
         'deskripsi',
         'dosen_id',
+        'prodi_id',
+        'semester_id',
+        'kelas_id',
     ];
 
     public function dosen(): BelongsTo
@@ -37,5 +40,25 @@ class Course extends Model
     public function notes(): HasMany
     {
         return $this->hasMany(CourseNote::class);
+    }
+
+    public function prodi(): BelongsTo
+    {
+        return $this->belongsTo(Prodi::class, 'prodi_id');
+    }
+
+    public function semester(): BelongsTo
+    {
+        return $this->belongsTo(Semester::class, 'semester_id');
+    }
+
+    public function kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class, 'kelas_id');
+    }
+
+    public function quizzes(): HasMany
+    {
+        return $this->hasMany(Quiz::class);
     }
 }

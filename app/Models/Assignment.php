@@ -16,10 +16,17 @@ class Assignment extends Model
         'deadline',
         'allowed_types',
         'max_size_mb',
+        'start_date',
+        'end_date',
+        'upload_limit',
+        'max_score',
+        'rubric',
     ];
 
     protected $casts = [
         'deadline' => 'datetime',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
     ];
 
     public function course()

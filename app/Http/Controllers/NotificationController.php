@@ -19,9 +19,13 @@ class NotificationController extends Controller
         
         $notification->update(['is_read' => true]);
         
-        $data = json_decode($notification->content, true) ?: [];
+        if ($notification->url) {
+            return redirect($notification->url);
+        }
         
-        return view('notifications.show', compact('notification', 'data'));
+        $content = json_decode($notification->content, true) ?: [];
+        
+        return view('notifications.show', compact('notification', 'content'));
     }
 
     public function readAll()

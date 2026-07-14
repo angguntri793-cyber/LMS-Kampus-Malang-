@@ -10,6 +10,8 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->text('content');
+            $table->string('type')->default('info');
+            $table->string('url')->nullable();
             $table->boolean('is_read')->default(false);
             $table->timestamps();
         });

@@ -16,6 +16,8 @@ class AppNotification extends Model
         'title',
         'content',
         'is_read',
+        'type',
+        'url',
     ];
 
     protected $casts = [

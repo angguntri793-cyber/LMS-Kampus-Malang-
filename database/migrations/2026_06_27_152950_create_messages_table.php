@@ -11,6 +11,11 @@ return new class extends Migration {
             $table->foreignId('receiver_id')->constrained('users')->cascadeOnDelete();
             $table->text('body');
             $table->boolean('is_read')->default(false);
+            
+            // New message deletion status flags
+            $table->boolean('deleted_by_sender')->default(false);
+            $table->boolean('deleted_by_receiver')->default(false);
+
             $table->timestamps();
         });
     }
